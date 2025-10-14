@@ -34,7 +34,7 @@ All tests passing ✅ using `flutter test`.
 
 ---
 
-## 🖼️ Screenshot
+## 🖼️ Screenshots
 
 | State | Screenshot |
 |--------|-------------|
