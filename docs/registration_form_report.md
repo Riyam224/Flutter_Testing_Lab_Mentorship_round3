@@ -1,26 +1,42 @@
-# Widget 1 — User Registration Form Report
+# User Registration Form Report
 
-## 🐞 Bug Description
+🐞 Bug Description
 
-| Issue | Description |
-|--------|-------------|
-| Email validation | Accepted invalid emails like `a@` or `@b` |
-| Password validation | Weak passwords were accepted |
-| Form validation | Form submitted even when fields were empty |
-| Missing tests | No unit or widget tests for validation |
+Issue Description
+Email validation Accepted invalid formats such as a@ or @b
+Password validation Allowed weak passwords without uppercase, digit, or symbol
+Form validation Submitted even with empty or invalid fields
+Missing tests No unit or widget tests to verify validation or submission
 
----
+⸻
 
-## 🔧 Solution Summary
+🔧 Solution Summary
 
-- Added **regex-based email validation**  
-- Implemented **strong password rules** (min 8 chars, upper/lower/digit/symbol)  
-- Added **form validation before submission** using `_formKey.validate()`  
-- Enabled **real-time validation feedback** via `AutovalidateMode.onUserInteraction`  
-- Added **error messages for each invalid state**  
-- Created **unit and widget tests** for coverage and reliability
+ • Implemented regex-based email validation (^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$)
+ • Added strong password rules:
+ • Minimum 8 characters
+ • At least one uppercase, one lowercase, one digit, and one special character
+ • Applied form validation before submission using _formKey.currentState?.validate()
+ • Enabled real-time validation feedback with AutovalidateMode.onUserInteraction
+ • Added SnackBar feedback for success/error messages
+ • Removed old “bug warning” banner widgets after fixes
+ • Created unit tests for validator functions and widget tests for full form flow
+ • Covered edge cases (trimmed spaces, subdomain emails, short passwords, mismatched passwords)
 
----
+⸻
+
+🧪 Test Coverage Summary
+
+Test Type Purpose Status
+Unit Tests Validate email and password logic ✅ Passed
+Widget Tests Verify UI feedback, validation errors, and success messages ✅ Passed
+Edge Cases Subdomains (<user@mail.co>), trimmed inputs, missing symbol/digit ✅ Passed
+
+✅ All tests executed successfully using:
+
+flutter test
+
+⸻
 
 ## 🧪 Tests Added
 
@@ -45,11 +61,25 @@ All tests passing ✅ using `flutter test`.
 | 🟪 Passwords Do Not Match | ![Passwords Do Not Match](../assets/screenshots/form/passwords_do_not_match.png) |
 | 🟩 Success | ![Success](../assets/screenshots/form/registration_successful.png) |
 
----
+⸻
 
-## 🧩 Notes
+🧠 Edge Cases Tested
+ • Email with subdomains → ✅ <user@mail.example.co>
+ • Email/password with spaces → ✅ auto-trimmed
+ • Password length = 7 → ❌ rejected
+ • Password missing symbol → ❌ rejected
+ • Password missing digit → ❌ rejected
+ • Password missing uppercase → ❌ rejected
+ • All valid → ✅ registration success
 
-- All validation now matches UX expectations.  
-- Each error message appears instantly under its field.  
-- Success state verified visually and through automated tests.  
-- Screenshots stored in `assets/screenshots/form/` for traceability.
+⸻
+
+🧩 Additional Notes
+ • All validation now aligns with UX expectations and standard security rules.
+ • Each invalid field displays an immediate inline message.
+ • Success flow confirmed visually and through widget tests.
+ • Form now fully prevents empty/invalid submissions.
+ • Removed the placeholder “bug banners” from HomePage widget.
+ • Updated Markdown report with final screenshots and test coverage.
+
+⸻
