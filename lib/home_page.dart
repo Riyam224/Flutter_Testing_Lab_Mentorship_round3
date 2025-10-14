@@ -10,7 +10,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int _currentIndex = 0;
 
@@ -67,10 +68,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Colors.grey.shade50,
-              Colors.grey.shade100,
-            ],
+            colors: [Colors.grey.shade50, Colors.grey.shade100],
           ),
         ),
         child: Column(
@@ -86,12 +84,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.warning,
-                    color: Colors.orange.shade700,
-                    size: 20,
-                  ),
+                  Icon(Icons.warning, color: Colors.orange.shade700, size: 20),
                   const SizedBox(width: 8),
+                  // todo delete this warning message after fixing the  widgets  ______________
                   Expanded(
                     child: Text(
                       'Current Widget: ${_getWidgetName(_currentIndex)} - Contains bugs that need fixing!',
@@ -123,9 +118,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.blue.shade50,
-          border: Border(
-            top: BorderSide(color: Colors.blue.shade200),
-          ),
+          border: Border(top: BorderSide(color: Colors.blue.shade200)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -147,16 +140,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             const SizedBox(height: 4),
             Text(
               'Switch between tabs to test different widgets',
-              style: TextStyle(
-                color: Colors.blue.shade600,
-                fontSize: 12,
-              ),
+              style: TextStyle(color: Colors.blue.shade600, fontSize: 12),
             ),
           ],
         ),
       ),
     );
   }
+
+  // todo delete this warning message after fixing the  widgets  ______________
 
   String _getWidgetName(int index) {
     switch (index) {
