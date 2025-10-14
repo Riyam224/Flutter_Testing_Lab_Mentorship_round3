@@ -39,6 +39,7 @@ All tests passing ✅ using `flutter test`.
 | State | Screenshot |
 |--------|-------------|
 | 🟥 Empty Fields | ![Empty Fields](../assets/screenshots/form/empty_fields.png) |
+| 🟦 Full Name Error | ![Full Name Error](../assets/screenshots/form/full_name_error.png) |
 | 🟧 Invalid Email | ![Invalid Email](../assets/screenshots/form/please_enter_a_valid_email.png) |
 | 🟨 Weak Password | ![Weak Password](../assets/screenshots/form/password_is_too_weak.png) |
 | 🟪 Passwords Do Not Match | ![Passwords Do Not Match](../assets/screenshots/form/passwords_do_not_match.png) |
